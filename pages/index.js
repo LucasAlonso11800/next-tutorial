@@ -2,9 +2,9 @@ import Head from 'next/head';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import Post from '../components/Post';
 
 export default function Home({ posts }) {
-    console.log(posts)
     return (
         <>
             <Head>
@@ -12,7 +12,9 @@ export default function Home({ posts }) {
                 <meta name="description" content="Next markdown blog" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <h1>Home</h1>
+            <div className="posts">
+                {posts.map(post => <Post post={post} />)}
+            </div>
         </>
     )
 };
